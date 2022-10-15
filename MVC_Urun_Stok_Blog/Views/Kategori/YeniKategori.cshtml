@@ -1,0 +1,21 @@
+﻿@model MVC_Urun_Stok_Blog.Models.EntityFramework.tbl_kategoriler
+@{
+    ViewBag.Title = "YeniKategori";
+    Layout = "~/Views/Shared/_MainLAyout.cshtml";
+}
+
+<form class="form-group" method="post">
+    @*<div>
+            <label>Kategori Adı:</label>
+            <input type="text" name="KATEGORIAD" class="form-group" />
+        </div>*@
+
+    <label>Kategori Adı:</label>
+    @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.KATEGORIAD, "", new { @style = "color:red" })
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Kategori Ekle</button>
+    </div>
+</form>
+

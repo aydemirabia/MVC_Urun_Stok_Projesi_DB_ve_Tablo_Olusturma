@@ -1,0 +1,25 @@
+﻿@model MVC_Urun_Stok_Blog.Models.EntityFramework.tbl_musteriler
+@{
+    ViewBag.Title = "YeniMusteri";
+    Layout = "~/Views/Shared/_MainLAyout.cshtml";
+}
+<form class="form-group" method="post">
+    <div>
+        <label>Müşteri Adı:</label>
+        @Html.TextBoxFor(m => m.MUSTERIAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MUSTERIAD, "", new { @style = "color:red" })
+    </div>
+    <div>
+        <label>Müşteri Soyadı:</label>
+        <input type="text" class="form-control" name="MUSTERISOYAD" />
+    </div>
+    <br />
+    <div>
+        <button style="right:20px" class="btn btn-info" id="btn1">Ekle</button>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Müşteri Ekleme İşlemi Yapıldı!');
+        });
+    </script>
+</form>

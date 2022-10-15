@@ -1,0 +1,39 @@
+﻿@using MVC_Urun_Stok_Blog.Models.EntityFramework
+@model List<tbl_musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLAyout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Musteri", FormMethod.Get))
+            {
+                <p>
+                    Müşteri Adı: @Html.TextBox("p1");
+                    <input type="submit" value="Ara" />
+                </p>
+            }
+
+<table class="table table-bordered">
+    <tr>
+        <th>MÜŞTERİ ID</th>
+        <th>MÜŞTERİ ADI</th>
+        <th>MÜŞTERİ SOYAD</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+
+    </tr>
+    <tbody>
+        @foreach (var musteri in Model)
+        {
+            <tr>
+                <th>@musteri.MUSTERIID</th>
+                <td>@musteri.MUSTERIAD</td>
+                <td>@musteri.MUSTERISOYAD</td>
+                <td><a href="/Musteri/Sil/@musteri.MUSTERIID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Musteri/MusteriGuncelle/@musteri.MUSTERIID" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Musteri/YeniMusteri/" class="btn btn-primary">Yeni Müşteri Ekle</a>
+

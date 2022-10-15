@@ -1,0 +1,37 @@
+﻿@using MVC_Urun_Stok_Blog.Models.EntityFramework
+@model List<tbl_urunler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLAyout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ÜRÜN ID</th>
+        <th>ÜRÜN ADI</th>
+        <th>MARKA</th>
+        <th>KATEGORİ</th>
+        <th>FİYAT</th>
+        <th>STOK</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach(var urun in Model)
+            {
+                <tr>
+                    <th>@urun.URUNID</th>
+                    <td>@urun.URUNAD</td>
+                    <td>@urun.MARKA</td>
+                    <td>@urun.tbl_kategoriler.KATEGORIAD</td>
+                    <td>@urun.URUNFIYAT</td>
+                    <td>@urun.STOK</td>
+                    <td><a href="/Urun/Sil/@urun.URUNID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Urun/UrunGetir/@urun.URUNID" class="btn btn-success">Güncelle</a></td>
+            
+                </tr>
+            }
+    </tbody>
+</table>
+<a href="/Urun/UrunEkle/" class="btn btn-primary">Yeni Ürün Ekle</a>
+
